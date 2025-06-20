@@ -1,0 +1,10 @@
+#root {
+  margin: 0;
+  text-align: top;
+}
+
+.article {
+  background-color: green;
+  margin: 1rem;
+  padding: .5rem;
+}
