@@ -1,39 +1,45 @@
 import NavBar from './components/navbar/NavBar'
 import './App.css'
 import ArticleList from './components/articles/ArticleList'
+import {getNews} from './services/GetNewsService'
+import { useEffect, useState } from 'react'
 import type IArticle from './interfaces/IArticle'
 
-function App() {
+const App = () => {	
 
-  // Dummy data for articles
-  const articles: IArticle[] = [
-    {
-      id: "1",
-      title: 'Første artikkel',
-      content: 'Dette er innholdet i den første artikkelen.',
-      images: ['https://via.placeholder.com/150'],
-      date: new Date()
-    },
-    {
-      id: "2",
-      title: 'Andre artikkel',
-      content: 'Dette er innholdet i den andre artikkelen.',
-      images: ['https://via.placeholder.com/150'],
-      date: new Date()
-    }
-  ]
+	const [articles, setArticles] = useState<IArticle[]>([]);
+	const [loading, setLoading] = useState<boolean>(false);
 
-  return (
-    <>
-      <div>
-        <NavBar />
+	useEffect(() => {
+		const fetchData = async () => {
+			setLoading(true);
 
-        <ArticleList
-          articles={articles}
-        />
-      </div>
-    </>
-  )
+			try {
+				const data = await getNews();
+				setArticles(data);
+			} catch (error) {
+				console.error('Error fetching articles:', error);
+
+   		   	} finally {
+				setLoading(false);
+		   	}
+		};
+
+		fetchData();
+	}, []);
+
+	return (
+		<>
+		<div>
+			<NavBar />
+		   <h1>Nyheter i Norge</h1>
+
+		   <ArticleList articles={articles} />
+	
+		</div>
+		</>
+	)
 }
 
-export default App
+export default App;
+

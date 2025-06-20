@@ -1,7 +1,8 @@
 export default interface IArticle {
-    id: string;
+    authors: string[];
     title: string;
     content: string;
-    images: string[];
+    image: string;
     date: Date | null;
+    source: string;
 }

@@ -7,15 +7,16 @@ interface ArticleListProps {
 
 const ArticleList: React.FC<ArticleListProps> = ({articles}) => {
 
-    const articlesTSX = articles.map((article: IArticle) => {
+    const articlesTSX = articles.map((article: IArticle, i) => {
         return (
             <Article
-                key={article.id}
-                id={article.id}
+                key={"article" + i}
+                authors={article.authors}
                 title={article.title}
                 content={article.content}
-                images={article.images}
+                image={article.image}
                 date={article.date}
+                source={article.source}
             />
         )
     })

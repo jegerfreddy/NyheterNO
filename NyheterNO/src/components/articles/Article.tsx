@@ -4,15 +4,11 @@ const Article = (article: IArticle) => {
 
     return (
         <>
-            <div key={article.id} className="article">
+            <div className="article">
                 <h2>{article.title}</h2>
                 <p>{article.content}</p>
 
-                {article.images && article.images.length > 0 && (
-                    <img src={article.images[0]} alt="artikkel bildet" />
-                )}
-
-                <p>{article.date?.toDateString()}</p>
+                <img src={article.image} alt="artikkel bildet" width={"500px"}/>
             </div>
         </>
     );
