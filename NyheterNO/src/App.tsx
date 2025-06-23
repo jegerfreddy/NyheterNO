@@ -49,10 +49,14 @@ const App = () => {
 
 				<NavBar />
 
-				<h1>Artikkeler</h1>
+				<div className='main-page-layout'>
+					<div className='content-overview-container'>
+						<p>Overview</p>
+					</div>
 
-				<div className="articleListContainer">
-					<ArticleList articles={articles} />
+					<div className="article-list-container">
+						<ArticleList articles={articles} />
+					</div>
 				</div>
 		
 			</div>

@@ -1,10 +1,8 @@
-
-
 const NavBar = () => {
 
     return (
         <>
-            <nav className="bg-dark m-0 p-2 navbar">
+            <nav className="m-0 p-2 pt-3 pb-3 navbar navbar-light">
                 <div className="navbarContent ps-3 pe-3">
                     <div>
                         <h5 className="text-white ">Alle nyheter samlet på et sted</h5>
