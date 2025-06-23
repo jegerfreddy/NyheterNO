@@ -8,7 +8,11 @@ const Article = (article: IArticle) => {
                 <h2>{article.title}</h2>
                 <p>{article.content}</p>
 
-                <img src={article.image} alt="artikkel bildet" width={"500px"}/>
+                <p>{article.description}</p>
+
+                { article.imageUrl && (
+                    <img src={article.imageUrl} alt="artikkel bildet" width={"500px"}/>
+                )}
             </div>
         </>
     );

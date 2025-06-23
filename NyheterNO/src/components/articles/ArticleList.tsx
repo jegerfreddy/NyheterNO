@@ -14,9 +14,11 @@ const ArticleList: React.FC<ArticleListProps> = ({articles}) => {
                 authors={article.authors}
                 title={article.title}
                 content={article.content}
-                image={article.image}
-                date={article.date}
+                description={article.description}
+                pubDate={article.pubDate}
+                imageUrl={article.imageUrl}
                 source={article.source}
+                link={article.link}
             />
         )
     })
